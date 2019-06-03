@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <h1>Serious Business</h1>
+    <div class="row">
+        <div class="column" style="background-color:#aaa;">
+          <h2>Column 1</h2>
+          <p>ma-vrij: 11:00- <span id="timechange">17</span>:00</p>
+          <p>za-zo: gesloten</p>
+          <div id="time" onclick="closestore()"></div>
+
+
+        </div>
+        <div class="column" style="background-color:#bbb;">
+          <h2>Column 2</h2>
+          <p>Welcom, serious business is now 
+          <span id="day"></span></p>
+        </div>
+      </div>
+      
+
+<script>
+var d = new Date();
+var day = d.getDay(); 
+var hours = d.getHours(); 
+//var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+//document.getElementById("day").innerHTML = days[d.getDay()];
+
+if(day >= 1 && day <= 5 && hours >= 11 && hours <= 17){
+document.getElementById("day").insertAdjacentHTML("beforeend", "open"); 
+}
+else{
+    document.getElementById("day").insertAdjacentHTML("beforeend", "closed"); 
+}
+
+var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds(); 
+document.getElementById("time").innerHTML = time; 
+console.log(time)
+
+
+function closestore(){
+document.getElementById("timechange").innerHTML = hours; 
+}
+</script>
+
+</body>
+</html>
